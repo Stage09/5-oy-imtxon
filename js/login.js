@@ -31,7 +31,7 @@ const correctLogin = "admin";
         passwordInput.addEventListener("input", checkCredentials);
 
         submitBtn.addEventListener("click", function() {
-            window.open("main.html");
+            window.open("register.html");
         });
 
         loadSavedCredentials();

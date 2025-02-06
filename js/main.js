@@ -11,7 +11,7 @@ function renderTable() {
     students.forEach((student, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td><img src="${student.image || './images/person.svg'}" alt="Student Image" width="50" height="50" style="border-radius: 50%;"></td>
+            <td><img src="${student.image || './images/person.svg'}" alt="Student Image" width="50" height="50" style="border-radius:15px;"></td>
             <td>${student.name}</td>
             <td>${student.email}</td>
             <td>${student.phone}</td>

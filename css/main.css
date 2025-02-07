@@ -37,3 +37,98 @@
     background: linear-gradient(71.17deg, #FEAF00 19.35%, #F8D442 90.12%);
     font-family:"Montserrat",sans-serif ;
 }
+.hidden {
+  display: none;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.bg-black {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-lg {
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-gray-600 {
+  color: #718096;
+}
+
+.bg-primary {
+  background-color: #FEAF00;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+/* Для обертки модального окна */
+#modalWrapper {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Для самого модального окна */
+.modal {
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.scale-100 {
+  transform: scale(1);
+}

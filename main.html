@@ -4,12 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Panel</title>
-  
-  <!-- Styles -->
   <link rel="stylesheet" href="./css/main.css">
-  
-  <!-- Tailwind CSS -->
+  <title>Admin Panel</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -24,9 +20,7 @@
       }
     }
   </script>
-
 </head>
-
 <body class="font-sans bg-background h-screen flex">
 
   <!-- Sidebar -->
@@ -47,8 +41,8 @@
       </label>
 
       <!-- User Info -->
-      <p class="text-center text-lg font-bold mt-4">Admin</p>
-      <p class="text-center text-primary">Administrator</p>
+      <p class="text-center text-lg font-bold mt-4">Najot Talim</p>
+      <p class="text-center text-primary">admin</p>
 
       <!-- Navigation Button -->
       <button class="w-full bg-primary text-white py-3 mt-6 flex items-center justify-center gap-3 rounded-md">
@@ -70,7 +64,7 @@
     <!-- Navbar -->
     <nav class="bg-background flex items-center justify-between px-8 py-3">
       <img src="./images/previus.svg" alt="Back" width="18" height="18">
-      <img src="./images/notification.svg" alt="Notifications" width="17" height="20">
+      <img id="notification-icon" src="./images/notification.svg" alt="Notifications" width="17" height="20" class="cursor-pointer">
     </nav>
 
     <!-- Students List -->
@@ -106,7 +100,7 @@
       <table class="w-full mt-6 border-collapse">
         <thead>
           <tr>
-            <th class="py-3 px-4 text-textGray text-sm"></th>
+            <th class="py-3 px-4 text-textGray text-sm">Photo</th>
             <th class="py-3 px-4 text-textGray text-sm">Name</th>
             <th class="py-3 px-4 text-textGray text-sm">Email</th>
             <th class="py-3 px-4 text-textGray text-sm">Phone</th>
@@ -116,6 +110,9 @@
         </thead>
         <tbody id="studentTableBody">
           <!-- Student rows will be injected here -->
+          <p id="noResultsMessage" class="text-center text-gray-500 mt-4 hidden opacity-0 transition-opacity duration-300">
+            Пользователь не найден.
+        </p>                 
         </tbody>
       </table>
     </section>
@@ -126,6 +123,16 @@
   <div class="modal-wrapper fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden" id="wrapper">
     <div class="modal bg-white p-8 rounded-xl w-[500px]"></div>
   </div>
+
+<!-- Notification Modal -->
+<div id="notification-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden opacity-0 transition-opacity duration-300">
+  <div class="bg-white p-6 rounded-lg w-96 shadow-lg scale-90 transform transition-transform duration-300">
+    <h3 class="text-lg font-bold mb-4">Уведомления</h3>
+    <p class="text-gray-600">У вас нет уведомлений</p>
+    <button id="close-notification" class="mt-4 bg-primary text-white px-4 py-2 rounded-md">Закрыть</button>
+  </div>
+</div>
+
 
   <!-- JavaScript -->
   <script src="./js/main.js"></script>

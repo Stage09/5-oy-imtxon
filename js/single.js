@@ -68,3 +68,22 @@ function loadProfileImage() {
 
 // Загружаем изображение при загрузке страницы
 window.onload = loadProfileImage;
+
+
+const notificationModal = document.getElementById("notification-modal");
+const notificationIcon = document.getElementById("notification-icon");
+const closeNotificationButton = document.getElementById("close-notification");
+
+notificationIcon.addEventListener("click", () => {
+    notificationModal.classList.remove("hidden");
+    setTimeout(() => {
+        notificationModal.classList.add("opacity-100");
+        notificationModal.querySelector("div").classList.add("scale-100");
+    }, 10);
+});
+
+closeNotificationButton.addEventListener("click", () => {
+    notificationModal.classList.remove("opacity-100");
+    notificationModal.querySelector("div").classList.remove("scale-100");
+    setTimeout(() => notificationModal.classList.add("hidden"), 300);
+});

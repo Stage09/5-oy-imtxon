@@ -16,7 +16,7 @@
 <body class="register-body">
 
 <div class="container mx-auto flex items-center justify-center h-[100vh]">
-    <div class="w-[475px] bg-white rounded-[20px] flex flex-col items-center pt-[44px] pb-[30px]">
+    <div class="w-[475px] bg-white rounded-[20px] flex flex-col items-center pt-[44px] pb-[30px] transform scale-95 opacity-0 transition-all duration-500" id="registerForm">
         <div class="flex gap-3">
             <span class="inline-block h-[39px] w-[6px] bg-[#F8D442]"></span>
             <h2 class="capitalize font-bold text-[#000000] text-[32px] leading-[39px] mb-[43px]">Admin Students</h2>
@@ -33,23 +33,24 @@
                 <input id="password" class="border-[2px] border-[#E5E5E5] rounded-[4px] p-[15px] w-[415px] py-[15px] outline-none placeholder:font-normal placeholder:text-[12px placeholder:text-[#CDCDCD]]" required type="password" name="newpassword" placeholder="Enter your login" >
             </label>
             <button id="submitBtn" disabled class="register-btn bg-[#FEAF00] w-full py-[14px] text-white">SIGN UP </button>
-            <a class="w-full py-[14px] text-black text-center  bg-white" href="./index.html">Sign in</a>
+            <a class="w-full py-[14px] text-black text-center bg-white" href="./index.html">Sign in</a>
         </form>
     </div>
 </div>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                clifford: '#da373d',
-              }
-            }
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
           }
         }
-    </script>
-    <script src="./js/register.js"></script>
+      }
+    }
+
+</script>
+<script src="./js/register.js"></script>
 </body>
 </html>

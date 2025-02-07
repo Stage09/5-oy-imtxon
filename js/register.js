@@ -35,3 +35,12 @@ const correctLogin = "admin";
         });
 
         loadSavedCredentials();
+
+// ============== animated form ================
+    window.addEventListener("DOMContentLoaded", () => {
+        const registerForm = document.getElementById("registerForm");
+        setTimeout(() => {
+          registerForm.classList.remove("scale-95", "opacity-0");
+          registerForm.classList.add("scale-100", "opacity-100");
+        }, 300);
+      });

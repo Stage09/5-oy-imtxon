@@ -10,6 +10,8 @@ function renderTable() {
     studentTableBody.innerHTML = '';
     students.forEach((student, index) => {
         const row = document.createElement('tr');
+        row.classList.add('student-row'); // Добавляем общий класс
+        row.id = "student"; // У всех одинаковый id (но это не рекомендуется)
         row.innerHTML = `
             <td><img src="${student.image || './images/person.svg'}" alt="Student Image" width="50" height="50" style="border-radius:15px;"></td>
             <td><a href="#" onclick="viewStudentDetails(${index})">${student.name}</a></td>
@@ -29,6 +31,7 @@ function renderTable() {
         studentTableBody.appendChild(row);
     });
 }
+
 
 // Функция для просмотра деталей студента
 function viewStudentDetails(index) {
@@ -142,3 +145,44 @@ elModalWrapper.addEventListener("click", function (ev) {
 
 // Первоначальный рендер
 renderTable();
+
+// --------------------------------------
+
+// Загрузка фото из localStorage, если оно есть
+window.onload = function() {
+    const savedImage = localStorage.getItem('profileImage');
+    if (savedImage) {
+      document.getElementById('preview').src = savedImage;
+    }
+  }
+
+  // Сохранение фото в localStorage
+  function saveProfileImage(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = function() {
+      const imageData = reader.result;
+      localStorage.setItem('profileImage', imageData);
+      document.getElementById('preview').src = imageData;
+    }
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
+
+function searchUser(input) {
+    const rows = document.querySelectorAll("#studentTableBody tr");
+
+    rows.forEach((row) => {
+        const cells = row.querySelectorAll("td");
+        const rowText = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(" ");
+        
+        if (rowText.includes(input.value.toLowerCase())) {
+            row.style.display = ""; // Показываем строку
+        } else {
+            row.style.display = "none"; // Скрываем строку
+        }
+    });
+}

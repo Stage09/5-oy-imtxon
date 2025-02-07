@@ -1,0 +1,12 @@
+<tr class="border-b">
+        <td class="py-3 px-4 text-center">${index + 1}</td>
+        <td class="py-3 px-4 text-center">${student.name}</td>
+        <td class="py-3 px-4 text-center">${student.email}</td>
+        <td class="py-3 px-4 text-center">${student.phone}</td>
+        <td class="py-3 px-4 text-center">${student.enrollNumber}</td>
+        <td class="py-3 px-4 text-center">${student.admissionDate}</td>
+        <td class="py-3 px-4 text-center">
+          <button onclick="editStudent(${student.id})" class="text-blue-500">Edit</button>
+          <button onclick="deleteStudent(${student.id})" class="text-red-500 ml-2">Delete</button>
+        </td>
+      </tr>

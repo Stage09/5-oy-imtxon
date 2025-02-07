@@ -1,4 +1,4 @@
-// Элементы для работы с модальным окном и таблицей
+
 const elModalWrapper = document.querySelector(".modal-wrapper");
 const elModal = document.querySelector(".modal");
 
@@ -10,27 +10,31 @@ function renderTable() {
     studentTableBody.innerHTML = '';
     students.forEach((student, index) => {
         const row = document.createElement('tr');
-        row.classList.add('student-row'); // Добавляем общий класс
-        row.id = "student"; // У всех одинаковый id (но это не рекомендуется)
+        row.classList.add('student-row'); 
+        row.onclick = () => viewStudentDetails(index); 
+        row.style.cursor = "pointer"; 
+
         row.innerHTML = `
-            <td><img src="${student.image || './images/person.svg'}" alt="Student Image" width="50" height="50" style="border-radius:15px;"></td>
-            <td><a href="#" onclick="viewStudentDetails(${index})">${student.name}</a></td>
-            <td>${student.email}</td>
-            <td>${student.phone}</td>
-            <td>${student.enroll}</td>
-            <td>${student.date}</td>
-            <td class="fun action-buttons">
-                <button onclick="editStudent(${index})">
+            <td class="py-3 px-4 text-center"><img src="${student.image || './images/person.svg'}" alt="Student Image" width="50" height="50" style="border-radius:15px;"></td>
+            <td class="py-3 px-4 text-center">${student.name}</td>
+            <td class="py-3 px-4 text-center">${student.email}</td>
+            <td class="py-3 px-4 text-center">${student.phone}</td>
+            <td class="py-3 px-4 text-center">${student.enroll}</td>
+            <td class="py-3 px-4 text-center">${student.date}</td>
+            <td class="fun action-buttons py-3 px-4 text-center">
+                <button onclick="event.stopPropagation(); editStudent(${index})">
                     <img src="./images/edit.svg" alt="">
                 </button>
-                <button onclick="deleteStudent(${index})">
+                <button onclick="event.stopPropagation(); deleteStudent(${index})">
                     <img src="./images/delete.svg" alt="">
                 </button>
             </td>
         `;
+
         studentTableBody.appendChild(row);
     });
 }
+
 
 
 // Функция для просмотра деталей студента
@@ -50,7 +54,6 @@ function handleFormSubmit(event, index) {
     const enroll = form.userID.value;
     const date = form.registerDate.value;
     
-    // Извлекаем сохраненное изображение (Base64) из data-атрибута
     const imageElement = document.querySelector('.added-img');
     const image = imageElement.dataset.file || imageElement.src || './images/person.svg';
 
@@ -76,7 +79,7 @@ function previewImage(event) {
         const reader = new FileReader();
         reader.onload = function (e) {
             imageElement.src = e.target.result;
-            imageElement.dataset.file = e.target.result; // Сохраняем в Base64
+            imageElement.dataset.file = e.target.result; 
         };
         reader.readAsDataURL(file);
     }
@@ -146,7 +149,6 @@ elModalWrapper.addEventListener("click", function (ev) {
 // Первоначальный рендер
 renderTable();
 
-// --------------------------------------
 
 // Загрузка фото из localStorage, если оно есть
 window.onload = function() {
